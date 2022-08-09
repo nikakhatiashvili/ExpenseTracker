@@ -7,9 +7,7 @@ import androidx.fragment.app.viewModels
 import com.example.expensetracker.R
 import com.example.expensetracker.databinding.FragmentSignInBinding
 import com.example.expensetracker.presentation.common.viewBinding
-import com.google.android.gms.auth.api.signin.GoogleSignIn
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignInFragment : Fragment(R.layout.fragment_sign_in) {

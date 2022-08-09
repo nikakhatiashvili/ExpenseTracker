@@ -1,8 +1,8 @@
 package com.example.expensetracker.presentation.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
@@ -32,7 +32,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         mainViewModel.onAppLaunched()
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_host_fragment) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.main_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
         collectFlow(routeProvider.startDestination) { resId ->

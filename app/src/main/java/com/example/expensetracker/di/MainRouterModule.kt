@@ -14,7 +14,7 @@ import dagger.hilt.components.SingletonComponent
 interface MainRouterModule {
 
     @Binds
-    fun bindSignInMainRouter(impl:MainRouterImpl):SignInMainRouter
+    fun bindSignInMainRouter(impl: MainRouterImpl): SignInMainRouter
 
     @Binds
     fun bindStartDestinationMainRouter(impl: MainRouterImpl): StartDestinationMainRouter

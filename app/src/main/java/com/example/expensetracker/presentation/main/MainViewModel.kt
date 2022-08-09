@@ -9,7 +9,6 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val router: StartDestinationMainRouter,
-//    private val authDataStore: AuthDataStore,
 ) : ViewModel() {
 
     fun onAppLaunched() {

@@ -1,6 +1,7 @@
 @file:SuppressWarnings("TooManyFunctions")
 
 package com.example.expensetracker.presentation.main
+
 import com.example.expensetracker.R
 import com.example.expensetracker.Route
 import com.example.expensetracker.StartDestinationAndRouteProvider
@@ -13,7 +14,8 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class MainRouterImpl @Inject constructor() : StartDestinationAndRouteProvider, StartDestinationMainRouter,
+class MainRouterImpl @Inject constructor() : StartDestinationAndRouteProvider,
+    StartDestinationMainRouter,
     SignInMainRouter {
 
     private val _startDestination = MutableStateFlow<Int?>(null)
@@ -39,35 +41,7 @@ class MainRouterImpl @Inject constructor() : StartDestinationAndRouteProvider, S
     }
 
     override fun goToTabs() {
-        _route.value = { navController -> navController.navigate(R.id.action_signInFragment_to_tabsFragment) }
+        _route.value =
+            { navController -> navController.navigate(R.id.action_signInFragment_to_tabsFragment) }
     }
-
-//    override fun goToAccountsFilter() {
-//        _route.value = { navController -> navController.navigate(R.id.action_tabsFragment_to_accountFilterFragment) }
-//    }
-//
-//    override fun goToPeopleList() {
-//        _route.value = { navController -> navController.navigate(R.id.action_tabsFragment_to_peopleListFragment) }
-//    }
-//
-//    override fun goToPeopleFilters() {
-//        _route.value = { navController -> navController.navigate(R.id.action_tabsFragment_to_peopleFiltersFragment) }
-//    }
-//
-//    override fun goToPositionsFilter() {
-//        _route.value = { navController -> navController.navigate(R.id.action_tabsFragment_to_positionsFilterFragment) }
-//    }
-//
-//    override fun goToProjectsFilter() {
-//        _route.value = { navController -> navController.navigate(R.id.action_tabsFragment_to_projectsFilterFragment) }
-//    }
-//
-//    override fun goToTabs() {
-//        _route.value = { navController -> navController.navigate(R.id.action_signInFragment_to_tabsFragment) }
-//    }
-//
-//    override fun closePeopleFilters() {
-//        _route.value = { navController -> navController.navigate(R.id.action_close_peopleFilterFragment) }
-//    }
-
 }

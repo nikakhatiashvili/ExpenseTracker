@@ -1,4 +1,4 @@
-package com.example.expensetracker.presentation
+package com.example.expensetracker.presentation.common
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
