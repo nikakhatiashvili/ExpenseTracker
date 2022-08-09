@@ -12,13 +12,19 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SignInViewModel @Inject constructor() : ViewModel() {
+class SignInViewModel @Inject constructor(
+    private val signInMainRouter: SignInMainRouter
+) : ViewModel() {
 
 //    private val _signInResultEvent = Channel<SignInResultEvent>()
 //    val signInResultEvent = _signInResultEvent.receiveAsFlow()
 
     private val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
+
+    fun goToSignUp(){
+        signInMainRouter.goToSignUp()
+    }
 
 //    fun handleSignIn(result: GoogleSignInResult) {
 ////        viewModelScope.launch {

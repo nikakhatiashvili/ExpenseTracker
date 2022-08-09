@@ -19,21 +19,11 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupClickListeners()
-//        googleSignIn.callback = viewModel::handleSignIn
-//        setupCollects()
     }
 
     private fun setupClickListeners() {
-
+        binding.tvSignUp.setOnClickListener {
+            viewModel.goToSignUp()
+        }
     }
-
-//    private fun setupCollects() {
-//        collectFlow(viewModel.signInResultEvent) {
-//            it.apply(context)
-//        }
-//
-//        collectFlow(viewModel.isLoading) { isLoading ->
-//            binding.loadingProgressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-//        }
-//    }
 }

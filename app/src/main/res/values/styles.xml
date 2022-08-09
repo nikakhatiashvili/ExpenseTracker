@@ -42,7 +42,7 @@
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:textAppearance">@style/TextAppearance.Staffing.Text.SubHeadline</item>
+        <item name="android:textAppearance">@style/TextAppearance.ExpenseTracker.Text.SubHeadline</item>
     </style>
 
     <style name="Widget.Staffing.ButtonSmallFilled" parent="Widget.MaterialComponents.Button">
@@ -54,7 +54,7 @@
         <item name="android:includeFontPadding">false</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
-        <item name="android:textAppearance">@style/TextAppearance.Staffing.Text.Footnote</item>
+        <item name="android:textAppearance">@style/TextAppearance.ExpenseTracker.Text.Footnote</item>
     </style>
 
     <style name="Widget.Staffing.ButtonSmallOutlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
@@ -66,12 +66,12 @@
         <item name="android:includeFontPadding">false</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
-        <item name="android:textAppearance">@style/TextAppearance.Staffing.Text.Footnote</item>
+        <item name="android:textAppearance">@style/TextAppearance.ExpenseTracker.Text.Footnote</item>
     </style>
 
     <style name="Widget.Staffing.ButtonBorderLess" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/border_less_btn_text_color</item>
-        <item name="android:textAppearance">@style/TextAppearance.Staffing.Text.Body</item>
+        <item name="android:textAppearance">@style/TextAppearance.ExpenseTracker.Text.Body</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:includeFontPadding">false</item>

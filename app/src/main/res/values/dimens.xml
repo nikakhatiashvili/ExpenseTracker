@@ -13,4 +13,5 @@
     <dimen name="spacing_2xl">32dp</dimen>
     <dimen name="spacing_3xl">40dp</dimen>
     <dimen name="spacing_4xl">54dp</dimen>
+    <dimen name="spacing_8xl">124dp</dimen>
 </resources>

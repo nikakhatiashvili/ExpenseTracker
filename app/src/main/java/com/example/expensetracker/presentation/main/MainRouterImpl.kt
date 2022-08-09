@@ -6,6 +6,7 @@ import com.example.expensetracker.R
 import com.example.expensetracker.Route
 import com.example.expensetracker.StartDestinationAndRouteProvider
 import com.example.expensetracker.presentation.signin.SignInMainRouter
+import com.example.expensetracker.presentation.signup.SignUpMainRouter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -15,8 +16,7 @@ import javax.inject.Singleton
 
 @Singleton
 class MainRouterImpl @Inject constructor() : StartDestinationAndRouteProvider,
-    StartDestinationMainRouter,
-    SignInMainRouter {
+    StartDestinationMainRouter, SignInMainRouter, SignUpMainRouter {
 
     private val _startDestination = MutableStateFlow<Int?>(null)
     override val startDestination: Flow<Int> = _startDestination.asStateFlow().filterNotNull()
@@ -43,5 +43,20 @@ class MainRouterImpl @Inject constructor() : StartDestinationAndRouteProvider,
     override fun goToTabs() {
         _route.value =
             { navController -> navController.navigate(R.id.action_signInFragment_to_tabsFragment) }
+    }
+
+    override fun goSignUpToTabs() {
+        _route.value =
+            { navController -> navController.navigate(R.id.action_signUpFragment_to_tabsFragment) }
+    }
+
+    override fun goToSignIn() {
+        _route.value =
+            { navController -> navController.navigate(R.id.action_signUpFragment_to_signInFragment) }
+    }
+
+    override fun goToSignUp() {
+        _route.value =
+            { navController -> navController.navigate(R.id.action_signInFragment_to_signUpFragment) }
     }
 }
