@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
     id 'io.gitlab.arturbosch.detekt' version '1.21.0-RC1'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
@@ -46,6 +47,7 @@ dependencies {
     implementation 'androidx.datastore:datastore-preferences:1.0.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.6'
     def nav_version = "2.5.1"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
@@ -53,9 +55,11 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.39"
     kapt "com.google.dagger:hilt-compiler:2.40.5"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.1'
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
     implementation "com.squareup.moshi:moshi-kotlin:1.12.0"
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.1"
+    implementation platform('com.google.firebase:firebase-bom:30.3.1')
 }

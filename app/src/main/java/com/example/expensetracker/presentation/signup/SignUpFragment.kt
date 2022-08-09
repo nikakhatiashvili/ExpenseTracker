@@ -8,7 +8,10 @@ import androidx.fragment.app.viewModels
 import com.example.expensetracker.R
 import com.example.expensetracker.databinding.FragmentSignInBinding
 import com.example.expensetracker.databinding.FragmentSignUpBinding
+import com.example.expensetracker.presentation.common.collectFlow
+import com.example.expensetracker.presentation.common.gone
 import com.example.expensetracker.presentation.common.viewBinding
+import com.example.expensetracker.presentation.common.visible
 import com.example.expensetracker.presentation.signin.SignInViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -22,24 +25,29 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupClickListeners()
-//        googleSignIn.callback = viewModel::handleSignIn
-//        setupCollects()
+        setupCollects()
     }
 
-    private fun setupClickListeners() {
-        binding.tvSignIn.setOnClickListener {
+    private fun setupClickListeners() = with(binding){
+        tvSignIn.setOnClickListener {
             viewModel.goToSignIn()
+        }
+        btnSignUp.setOnClickListener {
+            val email = etEmail.editText?.text.toString()
+            val password = etPassword.editText?.text.toString()
+            val secondPassword = etRepeatPassword.editText?.text.toString()
+            viewModel.signUp(email,password,secondPassword)
         }
     }
 
-//    private fun setupCollects() {
-//        collectFlow(viewModel.signInResultEvent) {
-//            it.apply(context)
-//        }
-//
-//        collectFlow(viewModel.isLoading) { isLoading ->
-//            binding.loadingProgressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-//        }
-//    }
+    private fun setupCollects() {
+        collectFlow(viewModel.signUpResultEvent) {
+            it.apply(context)
+        }
+        val progressBar = binding.loadingProgressBar
+        collectFlow(viewModel.isLoading) { isLoading ->
+             if (isLoading) progressBar.visible() else progressBar.gone()
+        }
+    }
 }
 

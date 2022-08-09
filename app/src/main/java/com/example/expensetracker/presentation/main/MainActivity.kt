@@ -20,6 +20,7 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
+
     private val binding by viewBinding(ActivityMainBinding::inflate)
 
     @Inject
