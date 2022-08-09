@@ -1,0 +1,33 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.ExpenseTracker" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#173348</item>
+        <item name="colorPrimaryVariant">#000c21</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">#2977FF</item>
+        <item name="colorSecondaryVariant">#004ccb</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="colorOnBackground">@color/bg_gray</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/bg_gray</item>
+        <item name="colorAccent">?attr/colorPrimary</item>
+
+        <item name="android:colorBackground">@color/bg_gray</item>
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:textColor">@color/primary_gray</item>
+
+        <!-- Default TextView text appearance. -->
+        <item name="android:textAppearanceSmall">@style/TextAppearance.Staffing.Text.Body</item>
+
+        <item name="android:textViewStyle">@style/Widget.Staffing.TextView</item>
+        <item name="toolbarStyle">@style/Widget.Staffing.Toolbar</item>
+        <item name="bottomNavigationStyle">@style/Widget.Staffing.NavigationView</item>
+        <item name="materialButtonStyle">@style/Widget.Staffing.ButtonFilled</item>
+        <item name="cardViewStyle">@style/Widget.Staffing.CardView</item>
+        <item name="materialCardViewStyle">@style/Widget.Staffing.CardView</item>
+    </style>
+</resources>

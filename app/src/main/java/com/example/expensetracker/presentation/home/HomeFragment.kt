@@ -1,0 +1,7 @@
+package com.example.expensetracker.presentation.home
+
+import androidx.fragment.app.Fragment
+import dagger.hilt.android.AndroidEntryPoint
+
+@AndroidEntryPoint
+class HomeFragment : Fragment()
