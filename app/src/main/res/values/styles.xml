@@ -24,7 +24,7 @@
         <item name="android:includeFontPadding">false</item>
         <item name="iconTint">?attr/colorOnSecondary</item>
         <item name="backgroundTint">?attr/colorPrimary</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.Staffing.Circle</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ExpenseTracker.Circle</item>
     </style>
 
     <style name="Widget.Staffing.ButtonCircle.Secondary">
@@ -50,7 +50,7 @@
         <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/spacing_m</item>
         <item name="android:paddingVertical" tools:targetApi="o">@dimen/spacing_xs</item>
         <item name="android:textColor">?attr/colorOnSecondary</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.Staffing.ButtonSmall</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ExpenseTracker.ButtonSmall</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
@@ -62,7 +62,7 @@
         <item name="strokeWidth">1dp</item>
         <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/spacing_m</item>
         <item name="android:paddingVertical" tools:targetApi="o">@dimen/spacing_xs</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.Staffing.ButtonSmall</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ExpenseTracker.ButtonSmall</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
