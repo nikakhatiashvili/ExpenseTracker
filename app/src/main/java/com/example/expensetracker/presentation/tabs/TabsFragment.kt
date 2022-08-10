@@ -10,7 +10,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.expensetracker.R
 import com.example.expensetracker.databinding.FragmentTabsBinding
 import com.example.expensetracker.navigate
-import com.example.expensetracker.presentation.collectFlow
+import com.example.expensetracker.presentation.common.collectFlow
 import com.example.expensetracker.presentation.common.viewBinding
 import com.example.expensetracker.presentation.tabs.di.TabsComponentHolder
 import dagger.hilt.android.AndroidEntryPoint
@@ -47,7 +47,8 @@ class TabsFragment : Fragment(R.layout.fragment_tabs) {
     private fun setupBackPressHandler() {
         requireActivity().onBackPressedDispatcher.addCallback(this) {
             val firstTabId = binding.bottomNavigation.menu.getItem(0).itemId
-            val navHostFragment = childFragmentManager.findFragmentById(R.id.tabs_host_fragment) as NavHostFragment
+            val navHostFragment =
+                childFragmentManager.findFragmentById(R.id.tabs_host_fragment) as NavHostFragment
             val backStackCount = navHostFragment.childFragmentManager.backStackEntryCount
             when {
                 binding.bottomNavigation.selectedItemId != firstTabId && backStackCount <= 1 -> {

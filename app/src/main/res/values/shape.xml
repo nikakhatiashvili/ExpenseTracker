@@ -3,14 +3,14 @@
 
     <style name="ShapeAppearance" />
 
-    <style name="ShapeAppearance.Staffing" />
+    <style name="ShapeAppearance.ExpenseTracker" />
 
-    <style name="ShapeAppearance.Staffing.ButtonSmall">
+    <style name="ShapeAppearance.ExpenseTracker.ButtonSmall">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">4dp</item>
     </style>
 
-    <style name="ShapeAppearance.Staffing.Circle">
+    <style name="ShapeAppearance.ExpenseTracker.Circle">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>

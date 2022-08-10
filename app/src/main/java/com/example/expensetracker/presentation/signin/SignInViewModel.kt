@@ -1,44 +1,44 @@
 package com.example.expensetracker.presentation.signin
 
+import android.util.Log.d
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.android.gms.auth.api.signin.GoogleSignInResult
+import com.example.expensetracker.domain.auth.SignInUseCase
+import com.example.expensetracker.domain.common.Dispatchers
+import com.example.expensetracker.domain.common.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.receiveAsFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class SignInViewModel @Inject constructor() : ViewModel() {
+class SignInViewModel @Inject constructor(
+    private val signInMainRouter: SignInMainRouter,
+    private val dispatchers: Dispatchers,
+    private val signInUseCase:SignInUseCase,
+) : ViewModel() {
 
-//    private val _signInResultEvent = Channel<SignInResultEvent>()
-//    val signInResultEvent = _signInResultEvent.receiveAsFlow()
+    private val _signInResultEvent = Channel<SignInResultEvent>()
+    val signInResultEvent = _signInResultEvent.receiveAsFlow()
 
     private val _isLoading = MutableStateFlow(false)
     val isLoading = _isLoading.asStateFlow()
 
-//    fun handleSignIn(result: GoogleSignInResult) {
-////        viewModelScope.launch {
-////            when (result) {
-////                is GoogleSignInResult.Error -> _signInResultEvent.send(SignInResultEvent.Error(signInMainRouter))
-////                is GoogleSignInResult.Success -> handleAccessTokenRequest(result.account.idToken.toString())
-////            }
-////        }
-//        signInMainRouter.goToTabs()
-//    }
+    fun goToSignUp(){
+        signInMainRouter.goToSignUp()
+    }
 
-//    private fun handleAccessTokenRequest(idToken: String) {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            _isLoading.value = true
-//            when (val result = authRepository.authenticate(idToken)) {
-//                is Result.ApiError -> Timber.d(result.message, result.code)
-//                is Result.ApiException -> Timber.d(result.e)
-//                is Result.ApiSuccess -> _signInResultEvent.send(SignInResultEvent.Success(signInMainRouter))
-//            }
-//            _isLoading.value = false
-//        }
-//    }
+    fun signIn(email:String,password:String){
+        dispatchers.launchBackground(viewModelScope){
+            _isLoading.value = true
+           when(val result =  signInUseCase.invoke(email, password)){
+               is Result.ApiSuccess -> _signInResultEvent.send(SignInResultEvent.Success(signInMainRouter,result.data.user?.email.toString()))
+               is Result.ApiError -> _signInResultEvent.send(SignInResultEvent.Error(result.message.toString()))
+               is Result.ApiException -> d("error",result.e.message.toString())
+           }
+            _isLoading.value = false
+        }
+    }
 }

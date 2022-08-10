@@ -4,4 +4,3 @@ interface DetailRouter {
 
     fun goToHome()
 }
-

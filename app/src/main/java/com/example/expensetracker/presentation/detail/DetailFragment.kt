@@ -1,12 +1,5 @@
 package com.example.expensetracker.presentation.detail
 
-import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.expensetracker.R
 
-class DetailFragment : Fragment() {
-
-}
+class DetailFragment : Fragment()

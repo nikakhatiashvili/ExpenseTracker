@@ -24,7 +24,7 @@
         <item name="android:includeFontPadding">false</item>
         <item name="iconTint">?attr/colorOnSecondary</item>
         <item name="backgroundTint">?attr/colorPrimary</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.Staffing.Circle</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ExpenseTracker.Circle</item>
     </style>
 
     <style name="Widget.Staffing.ButtonCircle.Secondary">
@@ -42,7 +42,7 @@
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:includeFontPadding">false</item>
-        <item name="android:textAppearance">@style/TextAppearance.Staffing.Text.SubHeadline</item>
+        <item name="android:textAppearance">@style/TextAppearance.ExpenseTracker.Text.SubHeadline</item>
     </style>
 
     <style name="Widget.Staffing.ButtonSmallFilled" parent="Widget.MaterialComponents.Button">
@@ -50,11 +50,11 @@
         <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/spacing_m</item>
         <item name="android:paddingVertical" tools:targetApi="o">@dimen/spacing_xs</item>
         <item name="android:textColor">?attr/colorOnSecondary</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.Staffing.ButtonSmall</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ExpenseTracker.ButtonSmall</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
-        <item name="android:textAppearance">@style/TextAppearance.Staffing.Text.Footnote</item>
+        <item name="android:textAppearance">@style/TextAppearance.ExpenseTracker.Text.Footnote</item>
     </style>
 
     <style name="Widget.Staffing.ButtonSmallOutlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
@@ -62,16 +62,16 @@
         <item name="strokeWidth">1dp</item>
         <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/spacing_m</item>
         <item name="android:paddingVertical" tools:targetApi="o">@dimen/spacing_xs</item>
-        <item name="shapeAppearance">@style/ShapeAppearance.Staffing.ButtonSmall</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.ExpenseTracker.ButtonSmall</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
-        <item name="android:textAppearance">@style/TextAppearance.Staffing.Text.Footnote</item>
+        <item name="android:textAppearance">@style/TextAppearance.ExpenseTracker.Text.Footnote</item>
     </style>
 
     <style name="Widget.Staffing.ButtonBorderLess" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="android:textColor">@color/border_less_btn_text_color</item>
-        <item name="android:textAppearance">@style/TextAppearance.Staffing.Text.Body</item>
+        <item name="android:textAppearance">@style/TextAppearance.ExpenseTracker.Text.Body</item>
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
         <item name="android:includeFontPadding">false</item>

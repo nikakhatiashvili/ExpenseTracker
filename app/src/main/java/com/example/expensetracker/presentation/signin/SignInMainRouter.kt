@@ -1,6 +1,8 @@
 package com.example.expensetracker.presentation.signin
 
 interface SignInMainRouter {
-     
-     fun goToTabs()
+
+    fun goToTabs()
+
+    fun goToSignUp()
 }

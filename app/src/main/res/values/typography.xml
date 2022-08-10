@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="TextAppearance.Staffing.Text" parent="TextAppearance.AppCompat" />
+    <style name="TextAppearance.ExpenseTracker.Text" parent="TextAppearance.AppCompat" />
 
-    <style name="TextAppearance.Staffing.Text.Title">
+    <style name="TextAppearance.ExpenseTracker.Text.Title">
         <item name="android:textSize">22sp</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:fontFamily">@font/sf_pro_display_bold</item>
     </style>
 
-    <style name="TextAppearance.Staffing.Text.Headline">
+    <style name="TextAppearance.ExpenseTracker.Text.Headline">
         <item name="android:textSize">17sp</item>
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:fontFamily">@font/sf_pro_text_bold</item>
     </style>
 
-    <style name="TextAppearance.Staffing.Text.Body">
+    <style name="TextAppearance.ExpenseTracker.Text.Body">
         <item name="android:textSize">17sp</item>
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:fontFamily">@font/sf_pro_text_regular</item>
     </style>
 
-    <style name="TextAppearance.Staffing.Text.SubHeadline">
+    <style name="TextAppearance.ExpenseTracker.Text.SubHeadline">
         <item name="android:textSize">15sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:letterSpacing">-0.02</item>
         <item name="android:fontFamily">@font/sf_pro_text_bold</item>
     </style>
 
-    <style name="TextAppearance.Staffing.Text.Footnote">
+    <style name="TextAppearance.ExpenseTracker.Text.Footnote">
         <item name="android:textSize">13sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:letterSpacing">-0.01</item>
         <item name="android:fontFamily">@font/sf_pro_text_bold</item>
     </style>
 
-    <style name="TextAppearance.Staffing.Text.Footnote.Regular">
+    <style name="TextAppearance.ExpenseTracker.Text.Footnote.Regular">
         <item name="android:fontFamily">@font/sf_pro_text_regular</item>
     </style>
 
-    <style name="TextAppearance.Staffing.Text.Caption">
+    <style name="TextAppearance.ExpenseTracker.Text.Caption">
         <item name="android:textSize">11sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:letterSpacing">0.01</item>

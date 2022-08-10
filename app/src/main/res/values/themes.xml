@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.ExpenseTracker" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
@@ -21,7 +21,7 @@
         <item name="android:textColor">@color/primary_gray</item>
 
         <!-- Default TextView text appearance. -->
-        <item name="android:textAppearanceSmall">@style/TextAppearance.Staffing.Text.Body</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.ExpenseTracker.Text.Body</item>
 
         <item name="android:textViewStyle">@style/Widget.Staffing.TextView</item>
         <item name="toolbarStyle">@style/Widget.Staffing.Toolbar</item>
