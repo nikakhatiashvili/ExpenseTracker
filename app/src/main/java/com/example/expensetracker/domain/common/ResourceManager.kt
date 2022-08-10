@@ -4,11 +4,12 @@ import android.content.Context
 import androidx.annotation.StringRes
 
 interface ResourceManager {
+
     fun provide(@StringRes stringResId: Int): String
 
     class Base(
         private val context: Context
-    ): ResourceManager {
+    ) : ResourceManager {
         override fun provide(@StringRes stringResId: Int): String = context.getString(stringResId)
     }
 }

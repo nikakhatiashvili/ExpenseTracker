@@ -9,16 +9,16 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val router: StartDestinationMainRouter,
+    private val startDestinationMainRouter: StartDestinationMainRouter,
     private val authDataStore: AuthDataStore
 ) : ViewModel() {
 
     fun onAppLaunched() {
         viewModelScope.launch {
-            if (authDataStore.hasToken()){
-                router.setTabsAsStartDestination()
+            if (authDataStore.hasUid()){
+                startDestinationMainRouter.setTabsAsStartDestination()
             }else{
-                router.setSignInAsStartDestination()
+                startDestinationMainRouter.setSignInAsStartDestination()
             }
         }
     }

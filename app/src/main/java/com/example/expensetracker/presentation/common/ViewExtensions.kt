@@ -1,7 +1,6 @@
 package com.example.expensetracker.presentation.common
 
 import android.view.View
-import android.widget.EditText
 import com.google.android.material.textfield.TextInputLayout
 
 fun View.gone() {

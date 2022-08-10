@@ -11,7 +11,7 @@ import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor(
-    private val firebase: FirebaseAuth,
+    private val firebaseAuth: FirebaseAuth,
     private val resourceManager: ResourceManager,
     private val authDataStore: AuthDataStore
 ) : AuthRepository {
@@ -23,7 +23,7 @@ class AuthRepositoryImpl @Inject constructor(
     ): Result<AuthResult> {
         return try {
             if (password == repeatPassword) {
-                val data = firebase.createUserWithEmailAndPassword(email, password).await()
+                val data = firebaseAuth.createUserWithEmailAndPassword(email, password).await()
                 saveUid(data.user?.uid.toString())
                 Result.ApiSuccess(data)
             } else {
@@ -36,7 +36,7 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun signIn(email: String, password: String): Result<AuthResult> {
         return try {
-            val data = firebase.signInWithEmailAndPassword(email, password).await()
+            val data = firebaseAuth.signInWithEmailAndPassword(email, password).await()
             saveUid(data.user?.uid.toString())
             Result.ApiSuccess(data)
         } catch (e: Exception) {
@@ -45,6 +45,6 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     private suspend fun saveUid(uid: String) {
-        authDataStore.saveToken(uid)
+        authDataStore.saveUid(uid)
     }
 }

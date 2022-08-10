@@ -2,11 +2,11 @@ package com.example.expensetracker.domain.auth
 
 interface AuthDataStore {
 
-    suspend fun saveToken(token: String)
+    suspend fun saveUid(token: String)
 
-    suspend fun hasToken(): Boolean
+    suspend fun hasUid(): Boolean
 
-    suspend fun removeToken()
+    suspend fun removeUid()
 
-    suspend fun getToken(): String
+    suspend fun getUid(): String
 }

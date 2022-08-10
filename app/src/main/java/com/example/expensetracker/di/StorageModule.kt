@@ -12,5 +12,5 @@ import dagger.hilt.components.SingletonComponent
 interface StorageModule {
 
     @Binds
-    fun providesAuthDataStore(impl: AuthDataStoreImpl): AuthDataStore
+    fun bindsAuthDataStore(impl: AuthDataStoreImpl): AuthDataStore
 }

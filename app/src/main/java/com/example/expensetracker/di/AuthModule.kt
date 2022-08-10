@@ -12,5 +12,5 @@ import dagger.hilt.components.SingletonComponent
 interface AuthModule {
 
     @Binds
-    fun provideAuthRepository(authRepositoryImpl: AuthRepositoryImpl): AuthRepository
+    fun bindsAuthRepository(authRepositoryImpl: AuthRepositoryImpl): AuthRepository
 }

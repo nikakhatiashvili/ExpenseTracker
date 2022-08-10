@@ -20,22 +20,22 @@ class AuthDataStoreImpl @Inject constructor(@ApplicationContext private val cont
         private val Context.dataStore by preferencesDataStore(name = AUTH_DATA_STORE)
     }
 
-    override suspend fun saveToken(token: String) {
+    override suspend fun saveUid(token: String) {
         val dataStoreKey = stringPreferencesKey(TOKEN)
         context.dataStore.edit { it[dataStoreKey] = token }
     }
 
-    override suspend fun hasToken(): Boolean {
-        return getToken().isNotEmpty()
+    override suspend fun hasUid(): Boolean {
+        return getUid().isNotEmpty()
     }
 
-    override suspend fun getToken(): String {
+    override suspend fun getUid(): String {
         val dataStoreKey = stringPreferencesKey(TOKEN)
         val preference = context.dataStore.data.first()
         return preference[dataStoreKey] ?: EMPTY_STRING
     }
 
-    override suspend fun removeToken() {
+    override suspend fun removeUid() {
         val dataStoreKey = stringPreferencesKey(TOKEN)
         context.dataStore.edit { token -> token[dataStoreKey] = EMPTY_STRING }
     }
