@@ -2,7 +2,7 @@ package com.example.expensetracker.presentation.main
 
 interface StartDestinationMainRouter {
 
-    fun setSignInAsStartDestination()
+    fun setSignInStartDestination()
 
     fun setTabsAsStartDestination()
 }

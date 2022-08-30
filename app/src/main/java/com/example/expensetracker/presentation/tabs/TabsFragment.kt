@@ -12,6 +12,7 @@ import com.example.expensetracker.databinding.FragmentTabsBinding
 import com.example.expensetracker.navigate
 import com.example.expensetracker.presentation.common.collectFlow
 import com.example.expensetracker.presentation.common.viewBinding
+import com.example.expensetracker.presentation.main.MainActivity
 import com.example.expensetracker.presentation.tabs.di.TabsComponentHolder
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -27,6 +28,8 @@ class TabsFragment : Fragment(R.layout.fragment_tabs) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModels<TabsViewModel>().value // init view model
+        (activity as MainActivity).hideLogin()
+        (activity as MainActivity).showHome()
         setupBackPressHandler()
     }
 

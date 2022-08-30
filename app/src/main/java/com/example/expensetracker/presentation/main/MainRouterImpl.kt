@@ -16,7 +16,7 @@ import javax.inject.Singleton
 
 @Singleton
 class MainRouterImpl @Inject constructor() : StartDestinationAndRouteProvider,
-    StartDestinationMainRouter, SignInMainRouter, SignUpMainRouter {
+    StartDestinationMainRouter,SignInMainRouter,SignUpMainRouter{
 
     private val _startDestination = MutableStateFlow<Int?>(null)
     override val startDestination: Flow<Int> = _startDestination.asStateFlow().filterNotNull()
@@ -24,7 +24,7 @@ class MainRouterImpl @Inject constructor() : StartDestinationAndRouteProvider,
     private val _route = MutableStateFlow<Route?>(null)
     override val route: Flow<Route> = _route.asStateFlow().filterNotNull()
 
-    override fun setSignInAsStartDestination() {
+    override fun setSignInStartDestination() {
         _startDestination.value = R.id.signInFragment
     }
 
@@ -41,22 +41,26 @@ class MainRouterImpl @Inject constructor() : StartDestinationAndRouteProvider,
     }
 
     override fun goToTabs() {
-        _route.value =
-            { navController -> navController.navigate(R.id.action_signInFragment_to_tabsFragment) }
-    }
-
-    override fun goSignUpToTabs() {
-        _route.value =
-            { navController -> navController.navigate(R.id.action_signUpFragment_to_tabsFragment) }
-    }
-
-    override fun goToSignIn() {
-        _route.value =
-            { navController -> navController.navigate(R.id.action_signUpFragment_to_signInFragment) }
+        _route.value = { navController ->
+            navController.navigate(R.id.action_signInFragment_to_tabsFragment)
+        }
     }
 
     override fun goToSignUp() {
-        _route.value =
-            { navController -> navController.navigate(R.id.action_signInFragment_to_signUpFragment) }
+        _route.value = { navController ->
+            navController.navigate(R.id.action_signInFragment_to_signUpFragment)
+        }
+    }
+
+    override fun goSignUpToTabs() {
+        _route.value = { navController ->
+            navController.navigate(R.id.action_signUpFragment_to_tabsFragment)
+        }
+    }
+
+    override fun goToSignIn() {
+        _route.value = { navController ->
+            navController.navigate(R.id.action_signUpFragment_to_signInFragment)
+        }
     }
 }
