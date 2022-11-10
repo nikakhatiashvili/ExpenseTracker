@@ -28,8 +28,6 @@ class TabsFragment : Fragment(R.layout.fragment_tabs) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModels<TabsViewModel>().value // init view model
-        (activity as MainActivity).hideLogin()
-        (activity as MainActivity).showHome()
         setupBackPressHandler()
     }
 
@@ -38,7 +36,7 @@ class TabsFragment : Fragment(R.layout.fragment_tabs) {
         val navController =
             (childFragmentManager.findFragmentById(R.id.tabs_host_fragment) as NavHostFragment).navController
         binding.bottomNavigation.setupWithNavController(navController)
-
+        (activity as MainActivity).changeNavController()
         tabsComponentHolder.getRouteProvider()?.run {
             collectFlow(route) { route ->
                 navController.navigate(route)

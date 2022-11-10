@@ -18,5 +18,6 @@
     <string name="expense_tracker">Expense Tracker</string>
     <string name="home">Home</string>
     <string name="login">login</string>
+    <string name="transactions">transactions</string>
 
 </resources>

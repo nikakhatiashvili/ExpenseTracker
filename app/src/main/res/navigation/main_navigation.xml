@@ -23,9 +23,6 @@
             app:popExitAnim="@anim/slide_down"
             app:popUpTo="@id/main_navigation"
             app:popUpToInclusive="true"/>
-        <action
-            android:id="@+id/action_signInFragment_to_exchangeRatesFragment"
-            app:destination="@id/exchangeRatesFragment" />
     </fragment>
 
     <fragment
@@ -59,14 +56,16 @@
         android:name="com.example.expensetracker.presentation.tabs.TabsFragment"
         android:label="fragment_tabs"
         tools:layout="@layout/fragment_tabs" >
-        <action
-            android:id="@+id/action_tabsFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.example.expensetracker.presentation.detail.DetailFragment"
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" />
+    <fragment
+        android:id="@+id/transactionsFragment"
+        android:name="com.example.expensetracker.presentation.transactions.TransactionsFragment"
+        android:label="fragment_transactions"
+        tools:layout="@layout/fragment_transactions" />
 
 </navigation>
