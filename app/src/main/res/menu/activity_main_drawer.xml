@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/group_1"
+        android:visible="true">
+        <item
+            android:id="@+id/signInFragment"
+            android:title="@string/sign_in" />
+        <item
+            android:id="@+id/signUpFragment"
+            android:title="@string/sign_up" />
+        <item
+            android:id="@+id/exchangeRatesFragment"
+            android:title="@string/exchange_rates" />
+    </group>
+
+</menu>

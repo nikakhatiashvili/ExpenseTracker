@@ -14,4 +14,8 @@
     <dimen name="spacing_3xl">40dp</dimen>
     <dimen name="spacing_4xl">54dp</dimen>
     <dimen name="spacing_8xl">124dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
 </resources>

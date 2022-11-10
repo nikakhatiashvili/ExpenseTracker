@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/people"
-        android:enabled="true"
-        android:icon="@drawable/ic_home"
-        android:title="@string/home" />
-<!--    <item-->
-<!--        android:id="@+id/positions"-->
-<!--        android:enabled="true"-->
-<!--        android:icon="@drawable/ic_positions"-->
-<!--        android:title="@string/nav_label_positions" />-->
-<!--    <item-->
-<!--        android:id="@+id/projects"-->
-<!--        android:enabled="true"-->
-<!--        android:icon="@drawable/ic_projects"-->
-<!--        android:title="@string/nav_label_projects" />-->
-<!--    <item-->
-<!--        android:id="@+id/accounts"-->
-<!--        android:enabled="true"-->
-<!--        android:icon="@drawable/ic_accounts"-->
-<!--        android:title="@string/nav_label_accounts" />-->
+    <group android:id="@+id/menu_top"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/people"
+            android:enabled="true"
+            android:icon="@drawable/ic_home"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/exchange_rates"
+            android:enabled="true"
+            android:icon="@drawable/ic_exchange_svgrepo_com"
+            android:title="@string/exchange_rates" />
+    </group>
 </menu>

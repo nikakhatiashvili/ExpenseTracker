@@ -12,6 +12,7 @@ import com.example.expensetracker.databinding.FragmentTabsBinding
 import com.example.expensetracker.navigate
 import com.example.expensetracker.presentation.common.collectFlow
 import com.example.expensetracker.presentation.common.viewBinding
+import com.example.expensetracker.presentation.main.MainActivity
 import com.example.expensetracker.presentation.tabs.di.TabsComponentHolder
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -35,7 +36,7 @@ class TabsFragment : Fragment(R.layout.fragment_tabs) {
         val navController =
             (childFragmentManager.findFragmentById(R.id.tabs_host_fragment) as NavHostFragment).navController
         binding.bottomNavigation.setupWithNavController(navController)
-
+        (activity as MainActivity).changeNavController()
         tabsComponentHolder.getRouteProvider()?.run {
             collectFlow(route) { route ->
                 navController.navigate(route)

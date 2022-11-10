@@ -5,5 +5,7 @@
     app:startDestination="@+id/people">
 
     <include app:graph="@navigation/home" />
+    <include app:graph="@navigation/exchange_rates" />
+    <include app:graph="@navigation/transactions" />
 
 </navigation>

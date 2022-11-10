@@ -33,6 +33,7 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
             viewModel.signIn(etEmail.editText?.text.toString(),etPassword.editText?.text.toString())
         }
     }
+
     private fun setupCollects(){
         collectFlow(viewModel.signInResultEvent){
             it.apply(context)

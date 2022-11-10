@@ -18,7 +18,7 @@ class MainViewModel @Inject constructor(
             if (authDataStore.hasUid()){
                 startDestinationMainRouter.setTabsAsStartDestination()
             }else{
-                startDestinationMainRouter.setSignInAsStartDestination()
+                startDestinationMainRouter.setSignInStartDestination()
             }
         }
     }
