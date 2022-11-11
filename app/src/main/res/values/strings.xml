@@ -19,5 +19,8 @@
     <string name="home">Home</string>
     <string name="login">login</string>
     <string name="transactions">transactions</string>
-
+    <string name="tbc_market_value">TBC Market value</string>
+    <string name="buy">buy</string>
+    <string name="sell">sell</string>
+    <string name="price">%s₾</string>
 </resources>

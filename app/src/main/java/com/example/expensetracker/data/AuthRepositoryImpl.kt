@@ -1,10 +1,10 @@
 package com.example.expensetracker.data
 
 import com.example.expensetracker.R
+import com.example.expensetracker.common.ResourceManager
+import com.example.expensetracker.common.Result
 import com.example.expensetracker.domain.auth.AuthDataStore
 import com.example.expensetracker.domain.auth.AuthRepository
-import com.example.expensetracker.domain.common.ResourceManager
-import com.example.expensetracker.domain.common.Result
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.tasks.await

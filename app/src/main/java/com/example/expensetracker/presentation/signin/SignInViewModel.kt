@@ -3,9 +3,9 @@ package com.example.expensetracker.presentation.signin
 import android.util.Log.d
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.expensetracker.common.Dispatchers
+import com.example.expensetracker.common.Result
 import com.example.expensetracker.domain.auth.SignInUseCase
-import com.example.expensetracker.domain.common.Dispatchers
-import com.example.expensetracker.domain.common.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -17,7 +17,7 @@ import javax.inject.Inject
 class SignInViewModel @Inject constructor(
     private val signInMainRouter: SignInMainRouter,
     private val dispatchers: Dispatchers,
-    private val signInUseCase:SignInUseCase,
+    private val signInUseCase: SignInUseCase,
 ) : ViewModel() {
 
     private val _signInResultEvent = Channel<SignInResultEvent>()

@@ -1,8 +1,8 @@
 package com.example.expensetracker.domain.auth
 
 import com.example.expensetracker.R
-import com.example.expensetracker.domain.common.ResourceManager
-import com.example.expensetracker.domain.common.Result
+import com.example.expensetracker.common.ResourceManager
+import com.example.expensetracker.common.Result
 import com.google.firebase.auth.AuthResult
 import java.io.IOException
 import javax.inject.Inject
@@ -18,9 +18,9 @@ class SignUpUseCase @Inject constructor(
         repeatPassword: String
     ): Result<AuthResult> {
         return try {
-            if (!email.isNullOrEmpty() &&
-                !password.isNullOrEmpty() &&
-                !repeatPassword.isNullOrEmpty()
+            if (email.isNotEmpty() &&
+                password.isNotEmpty() &&
+                repeatPassword.isNotEmpty()
             ) {
                 authRepository.signUp(email, password, repeatPassword)
             } else {

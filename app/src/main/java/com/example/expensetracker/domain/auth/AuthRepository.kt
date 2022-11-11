@@ -1,6 +1,6 @@
 package com.example.expensetracker.domain.auth
 
-import com.example.expensetracker.domain.common.Result
+import com.example.expensetracker.common.Result
 import com.google.firebase.auth.AuthResult
 
 interface AuthRepository {

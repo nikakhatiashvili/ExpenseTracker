@@ -1,8 +1,6 @@
 package com.example.expensetracker.presentation.main
 
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log.d
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -19,7 +17,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.expensetracker.R
 import com.example.expensetracker.StartDestinationAndRouteProvider
-import com.example.expensetracker.data.AuthRepositoryImpl
 import com.example.expensetracker.databinding.ActivityMainBinding
 import com.example.expensetracker.navigate
 import com.example.expensetracker.presentation.common.viewBinding
@@ -55,7 +52,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main) as NavHostFragment
         val navController = navHostFragment.navController
 
-
         setSupportActionBar(binding.toolbar)
         getSupportActionBar()?.setDisplayShowTitleEnabled(false)
         val drawerLayout: DrawerLayout = binding.drawerLayout
@@ -85,6 +81,9 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(route)
             routeProvider.onRouteExecuted()
         }
+        collectFlow(mainViewModel.destinationState){
+            if (it) changeNavController()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -94,6 +93,7 @@ class MainActivity : AppCompatActivity() {
 
     fun changeNavController() {
         navView.menu.clear()
+        navView.isEnabled = false
         binding.navView.visibility = View.GONE
         binding.toolbar.visibility = View.GONE
     }

@@ -1,4 +1,4 @@
-package com.example.expensetracker.domain.common
+package com.example.expensetracker.common
 
 import android.content.Context
 import androidx.annotation.StringRes
