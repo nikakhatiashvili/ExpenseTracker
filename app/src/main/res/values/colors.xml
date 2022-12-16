@@ -6,6 +6,7 @@
 
     <color name="primary_gray">#28282C</color>
     <color name="background_gray">#CBCDD2</color>
+    <color name="background_dialog">#ECEEF3</color>
     <color name="gray">#9697A0</color>
     <color name="light_gray">#DDDEE7</color>
     <color name="bg_gray">#ECEEF3</color>

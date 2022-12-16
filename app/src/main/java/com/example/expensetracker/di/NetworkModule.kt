@@ -1,7 +1,6 @@
 package com.example.expensetracker.di
 
-
-import com.example.expensetracker.data.network.CurrencyService
+import com.example.expensetracker.data.network.RankingService
 import com.example.expensetracker.data.network.NetworkResultCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -33,7 +32,7 @@ class NetworkModule {
         ).addCallAdapterFactory(NetworkResultCallAdapterFactory.create()).client(okHttpClient).build()
     @Provides
     @Singleton
-    fun provideCurrencyService(retrofit: Retrofit): CurrencyService = retrofit.create(CurrencyService::class.java)
+    fun provideCurrencyService(retrofit: Retrofit): RankingService = retrofit.create(RankingService::class.java)
 
     @Provides
     fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()

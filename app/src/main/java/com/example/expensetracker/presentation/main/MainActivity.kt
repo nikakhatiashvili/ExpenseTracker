@@ -1,26 +1,17 @@
 package com.example.expensetracker.presentation.main
 
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.expensetracker.R
 import com.example.expensetracker.StartDestinationAndRouteProvider
 import com.example.expensetracker.databinding.ActivityMainBinding
 import com.example.expensetracker.navigate
 import com.example.expensetracker.presentation.common.viewBinding
-import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collectLatest
@@ -29,12 +20,6 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var appBarConfiguration: AppBarConfiguration
-
-    private lateinit var navView: NavigationView
-
-    private lateinit var sideNavController: NavController
 
     private val binding by viewBinding(ActivityMainBinding::inflate)
 
@@ -54,21 +39,6 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.toolbar)
         getSupportActionBar()?.setDisplayShowTitleEnabled(false)
-        val drawerLayout: DrawerLayout = binding.drawerLayout
-        navView = binding.navView
-        sideNavController = findNavController(R.id.nav_host_fragment_content_main)
-        appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.exchangeRatesFragment,
-                R.id.transactionsFragment,
-                R.id.signInFragment,
-                R.id.signUpFragment,
-                R.id.tabsFragment,
-                R.id.homeFragment,
-            ), drawerLayout
-        )
-        setupActionBarWithNavController(sideNavController, appBarConfiguration)
-        navView.setupWithNavController(sideNavController)
 
         collectFlow(routeProvider.startDestination) { resId ->
             val navGraph = navController.navInflater.inflate(R.navigation.main_navigation)
@@ -76,26 +46,10 @@ class MainActivity : AppCompatActivity() {
             navController.graph = navGraph
             routeProvider.onStartDestinationSet()
         }
-
         collectFlow(routeProvider.route) { route ->
             navController.navigate(route)
             routeProvider.onRouteExecuted()
         }
-        collectFlow(mainViewModel.destinationState){
-            if (it) changeNavController()
-        }
-    }
-
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
-    }
-
-    fun changeNavController() {
-        navView.menu.clear()
-        navView.isEnabled = false
-        binding.navView.visibility = View.GONE
-        binding.toolbar.visibility = View.GONE
     }
 }
 

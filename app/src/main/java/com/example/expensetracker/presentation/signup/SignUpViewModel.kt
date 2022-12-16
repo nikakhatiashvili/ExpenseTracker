@@ -34,7 +34,9 @@ class SignUpViewModel @Inject constructor(
         provideDispatchers.launchBackground(viewModelScope){
             _isLoading.value = true
             when(val result = signUpUseCase.invoke(email, password, repeatPassword)){
-                is Result.ApiSuccess -> _signUpResultEvent.send(SignUpResultEvent.Success(signUpMainRouter,result.data.user?.email.toString()))
+                is Result.ApiSuccess -> {
+                    _signUpResultEvent.send(SignUpResultEvent.Success(signUpMainRouter,result.data.user?.email.toString()))
+                }
                 is Result.ApiError -> _signUpResultEvent.send(SignUpResultEvent.Error(result.message.toString()))
                 is Result.ApiException -> d("error",result.e.message.toString())
             }

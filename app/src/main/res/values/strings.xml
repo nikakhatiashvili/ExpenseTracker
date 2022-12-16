@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">ExpenseTracker</string>
-    <string name="welcome">Welcome %s</string>
+    <string name="welcome">Sign up was successful %s</string>
     <string name="sign_in">Sign In</string>
     <string name="email">Email</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
@@ -16,11 +16,18 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="exchange_rates">Exchange rates</string>
     <string name="expense_tracker">Expense Tracker</string>
-    <string name="home">Home</string>
+    <string name="tasks">tasks</string>
+    <string name="Rankings">Rankings</string>
     <string name="login">login</string>
     <string name="transactions">transactions</string>
     <string name="tbc_market_value">TBC Market value</string>
     <string name="buy">buy</string>
     <string name="sell">sell</string>
     <string name="price">%s₾</string>
+    <string name="name">tribe name</string>
+    <string name="profile">profile</string>
+    <string name="create">Create</string>
+    <string name="log_out">log out</string>
+    <string name="manage_tribe">Manage Tribe</string>
+    <string name="create_tribe">Create Tribe</string>
 </resources>
