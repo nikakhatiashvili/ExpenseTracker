@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.fragment.app.viewModels
-import com.example.expensetracker.databinding.FragmentTribeDialogBinding
-import dagger.hilt.android.AndroidEntryPoint
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.setFragmentResult
+import com.example.expensetracker.R
+import com.example.expensetracker.databinding.FragmentTribeDialogBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DialogFragment : DialogFragment() {
@@ -30,7 +30,13 @@ class DialogFragment : DialogFragment() {
 
     private fun setupClicks() {
         binding.create.setOnClickListener {
-            setFragmentResult("requestKey", bundleOf("bundleKey" to binding.etEmail.editText?.text.toString()))
+            setFragmentResult(
+                requireContext().getString(R.string.key3),
+                bundleOf(
+                    requireContext().getString(R.string.key4)
+                            to binding.etEmail.editText?.text.toString()
+                )
+            )
             dismiss()
         }
     }

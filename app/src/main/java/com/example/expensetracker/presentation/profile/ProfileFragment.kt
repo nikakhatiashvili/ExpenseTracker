@@ -6,8 +6,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import com.example.expensetracker.R
 import com.example.expensetracker.databinding.FragmentProfileBinding
+import com.example.expensetracker.presentation.common.collectFlow
+import com.example.expensetracker.presentation.common.toast
 import com.example.expensetracker.presentation.common.viewBinding
 import com.example.expensetracker.presentation.tabs.TabsFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -22,20 +25,31 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         super.onViewCreated(view, savedInstanceState)
         setupClickListeners()
         setupCollects()
+
     }
 
     private fun setupCollects() {
-
+        collectFlow(viewModel.isInTribe){
+            if (it) findNavController().navigate(R.id.action_profileFragment_to_tribeFragment)
+            else requireContext().toast(requireContext().getString(R.string.notInTribe))
+        }
+        collectFlow(viewModel.createTribe){
+            if (!it) {
+                val dialog = DialogFragment()
+                dialog.show(parentFragmentManager, requireContext().getString(R.string.dialog))
+                setFragmentResultListener(requireContext().getString(R.string.key3)) { requestKey, bundle ->
+                    val name = bundle.getString(requireContext().getString(R.string.key4))
+                    viewModel.createTribe(name!!)
+                }
+            }else{
+                requireContext().toast(requireContext().getString(R.string.cant_create))
+            }
+        }
     }
 
     private fun setupClickListeners() = with(binding) {
         binding.btnCreateTribe.setOnClickListener {
-            val dialog = DialogFragment()
-            dialog.show(parentFragmentManager, "CustomDialog")
-            setFragmentResultListener("requestKey") { requestKey, bundle ->
-                val name = bundle.getString("bundleKey")
-                viewModel.createTribe(name!!)
-            }
+            viewModel.createTribe()
         }
         binding.btnLogOut.setOnClickListener {
             viewModel.logOut()
@@ -44,7 +58,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             d.logOut()
         }
         binding.btnManageTribe.setOnClickListener {
-
+            viewModel.goToManageTribe()
         }
     }
 }

@@ -3,7 +3,9 @@ package com.example.expensetracker.presentation.signup
 import android.util.Log.d
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.expensetracker.R
 import com.example.expensetracker.common.Dispatchers
+import com.example.expensetracker.common.ResourceManager
 import com.example.expensetracker.common.Result
 import com.example.expensetracker.domain.auth.SignUpUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,7 +19,8 @@ import javax.inject.Inject
 class SignUpViewModel @Inject constructor(
     private val signUpMainRouter: SignUpMainRouter,
     private val provideDispatchers: Dispatchers,
-    private val signUpUseCase: SignUpUseCase
+    private val signUpUseCase: SignUpUseCase,
+    private val resourceManager: ResourceManager
 ) : ViewModel() {
 
     private val _signUpResultEvent = Channel<SignUpResultEvent>()
@@ -38,7 +41,7 @@ class SignUpViewModel @Inject constructor(
                     _signUpResultEvent.send(SignUpResultEvent.Success(signUpMainRouter,result.data.user?.email.toString()))
                 }
                 is Result.ApiError -> _signUpResultEvent.send(SignUpResultEvent.Error(result.message.toString()))
-                is Result.ApiException -> d("error",result.e.message.toString())
+                is Result.ApiException -> d(resourceManager.provide(R.string.error),result.e.message.toString())
             }
             _isLoading.value = false
         }

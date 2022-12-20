@@ -1,7 +1,7 @@
 package com.example.expensetracker.di
 
-import com.example.expensetracker.data.network.RankingService
 import com.example.expensetracker.data.network.NetworkResultCallAdapterFactory
+import com.example.expensetracker.data.network.RankingService
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module

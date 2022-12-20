@@ -5,15 +5,17 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.example.expensetracker.domain.auth.AuthDataStore
+import com.example.expensetracker.domain.manage_tribe.TribeDataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 class AuthDataStoreImpl @Inject constructor(@ApplicationContext private val context: Context) :
-    AuthDataStore {
+    AuthDataStore, TribeDataStore {
 
     companion object {
         private const val TOKEN = "token"
+        private const val TRIBE_ID = "tribe"
         private const val AUTH_DATA_STORE = "AUTH_DATA_STORE"
         private const val EMPTY_STRING = ""
 
@@ -38,5 +40,26 @@ class AuthDataStoreImpl @Inject constructor(@ApplicationContext private val cont
     override suspend fun removeUid() {
         val dataStoreKey = stringPreferencesKey(TOKEN)
         context.dataStore.edit { token -> token[dataStoreKey] = EMPTY_STRING }
+    }
+
+    override suspend fun getTribeId(): String {
+        val tribeId = stringPreferencesKey(TRIBE_ID)
+        val preference = context.dataStore.data.first()
+        return preference[tribeId] ?: EMPTY_STRING
+    }
+
+    override suspend fun saveTribeId(tribe: String) {
+        val tribeKey = stringPreferencesKey(TRIBE_ID)
+        context.dataStore.edit { it[tribeKey] = tribe }
+    }
+
+    override suspend fun removeTribeId() {
+        val tribeKey = stringPreferencesKey(TRIBE_ID)
+        context.dataStore.edit { token -> token[tribeKey] = EMPTY_STRING }
+    }
+
+    override suspend fun hasTribeId(): Boolean {
+        println("asdasdasd".plus(getTribeId().isNotEmpty()))
+        return getTribeId().isNotEmpty()
     }
 }

@@ -1,7 +1,7 @@
 package com.example.expensetracker.data.network
 
-import retrofit2.HttpException
 import com.example.expensetracker.common.Result
+import retrofit2.HttpException
 import retrofit2.Response
 import java.io.IOException
 

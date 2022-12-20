@@ -5,7 +5,7 @@ import com.example.expensetracker.common.ResourceManager
 import com.example.expensetracker.common.Result
 import com.example.expensetracker.domain.auth.AuthDataStore
 import com.example.expensetracker.domain.auth.AuthRepository
-import com.example.expensetracker.domain.tribe.Tribe
+import com.example.expensetracker.domain.manage_tribe.TribeIdRepository
 import com.example.expensetracker.domain.tribe.UserTribe
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -17,7 +17,8 @@ class AuthRepositoryImpl @Inject constructor(
     private val firebaseAuth: FirebaseAuth,
     private val firebaseDatabase: FirebaseDatabase,
     private val resourceManager: ResourceManager,
-    private val authDataStore: AuthDataStore
+    private val authDataStore: AuthDataStore,
+    private val tribeIdRepository: TribeIdRepository,
 ) : AuthRepository {
 
     override suspend fun signUp(
@@ -48,11 +49,12 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
     private fun createUserInDatabase(){
-        val ref = firebaseDatabase.getReference("user")
+        val ref = firebaseDatabase.getReference(resourceManager.provide(R.string.user))
         ref.child(firebaseAuth.uid.toString()).setValue(UserTribe(false))
     }
 
     private suspend fun saveUid(uid: String) {
         authDataStore.saveUid(uid)
+        tribeIdRepository.saveTribeId()
     }
 }

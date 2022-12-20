@@ -1,6 +1,7 @@
 package com.example.expensetracker.di
 
 import android.content.Context
+import com.example.expensetracker.R
 import com.example.expensetracker.common.Dispatchers
 import com.example.expensetracker.common.ResourceManager
 import com.google.firebase.auth.FirebaseAuth
@@ -18,8 +19,8 @@ object CommonModule {
 
     @Provides
     @Singleton
-    fun provideDatabaseReference(): FirebaseDatabase =
-        FirebaseDatabase.getInstance("https://expensetracker-9f76c-default-rtdb.firebaseio.com/")
+    fun provideDatabaseReference(resourceManager: ResourceManager): FirebaseDatabase =
+        FirebaseDatabase.getInstance(resourceManager.provide(R.string.tribe_url))
 
     @Provides
     fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()

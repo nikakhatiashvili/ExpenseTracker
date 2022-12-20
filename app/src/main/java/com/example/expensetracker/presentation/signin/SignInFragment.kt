@@ -41,9 +41,9 @@ class SignInFragment : Fragment(R.layout.fragment_sign_in) {
         collectFlow(viewModel.isLoading){
             if (it) {
                 binding.loadingProgressBar.visible()
-                binding.btnSignIn.isClickable = false
+                binding.btnSignIn.isEnabled = false
             }else{
-                binding.btnSignIn.isClickable = true
+                binding.btnSignIn.isEnabled = true
                 binding.loadingProgressBar.gone()
             }
         }

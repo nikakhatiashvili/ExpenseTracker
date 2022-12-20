@@ -7,8 +7,15 @@
         <fragment
             android:id="@+id/profileFragment"
             android:name="com.example.expensetracker.presentation.profile.ProfileFragment"
-            android:label="profile"/>
+            android:label="profile">
+                <action
+                    android:id="@+id/action_profileFragment_to_tribeFragment"
+                    app:destination="@id/tribeFragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/tribeFragment"
+            android:name="com.example.expensetracker.presentation.manage_tribe.TribeFragment"
+            android:label="TribeFragment" />
 
-        <include app:graph="@navigation/main_navigation" />
 
 </navigation>
