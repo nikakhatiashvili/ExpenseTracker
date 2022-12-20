@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.expensetracker.R
 import com.example.expensetracker.databinding.FragmentTransactionsBinding
 import com.example.expensetracker.presentation.common.viewBinding
@@ -23,7 +24,7 @@ class TransactionsFragment : Fragment(R.layout.fragment_transactions) {
     }
 
     private fun setupClickListeners() = with(binding) {
-
+        findNavController().navigate(R.id.action_global_signInFragment)
     }
 
     private fun setupCollects() {

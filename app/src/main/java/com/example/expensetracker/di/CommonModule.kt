@@ -1,9 +1,11 @@
 package com.example.expensetracker.di
 
 import android.content.Context
-import com.example.expensetracker.domain.common.Dispatchers
-import com.example.expensetracker.domain.common.ResourceManager
+import com.example.expensetracker.R
+import com.example.expensetracker.common.Dispatchers
+import com.example.expensetracker.common.ResourceManager
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,6 +16,11 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object CommonModule {
+
+    @Provides
+    @Singleton
+    fun provideDatabaseReference(resourceManager: ResourceManager): FirebaseDatabase =
+        FirebaseDatabase.getInstance(resourceManager.provide(R.string.tribe_url))
 
     @Provides
     fun provideFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()

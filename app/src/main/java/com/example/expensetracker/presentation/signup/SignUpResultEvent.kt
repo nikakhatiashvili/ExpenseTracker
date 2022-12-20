@@ -12,7 +12,7 @@ interface SignUpResultEvent {
         SignUpResultEvent {
         override fun apply(context: Context?) {
             context?.showMessage(context.resources.getString(R.string.welcome, name))
-            signUpMainRouter.goSignUpToTabs()
+            signUpMainRouter.goToSignIn()
         }
     }
 

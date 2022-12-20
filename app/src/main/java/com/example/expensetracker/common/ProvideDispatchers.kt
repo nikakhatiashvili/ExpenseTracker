@@ -1,4 +1,4 @@
-package com.example.expensetracker.domain.common
+package com.example.expensetracker.common
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job

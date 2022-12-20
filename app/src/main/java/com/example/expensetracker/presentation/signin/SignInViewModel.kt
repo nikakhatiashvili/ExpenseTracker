@@ -3,11 +3,14 @@ package com.example.expensetracker.presentation.signin
 import android.util.Log.d
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.expensetracker.R
+import com.example.expensetracker.common.Dispatchers
+import com.example.expensetracker.common.ResourceManager
+import com.example.expensetracker.common.Result
 import com.example.expensetracker.domain.auth.SignInUseCase
-import com.example.expensetracker.domain.common.Dispatchers
-import com.example.expensetracker.domain.common.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
@@ -17,7 +20,8 @@ import javax.inject.Inject
 class SignInViewModel @Inject constructor(
     private val signInMainRouter: SignInMainRouter,
     private val dispatchers: Dispatchers,
-    private val signInUseCase:SignInUseCase,
+    private val signInUseCase: SignInUseCase,
+    private val resourceManager: ResourceManager
 ) : ViewModel() {
 
     private val _signInResultEvent = Channel<SignInResultEvent>()
@@ -34,9 +38,11 @@ class SignInViewModel @Inject constructor(
         dispatchers.launchBackground(viewModelScope){
             _isLoading.value = true
            when(val result =  signInUseCase.invoke(email, password)){
-               is Result.ApiSuccess -> _signInResultEvent.send(SignInResultEvent.Success(signInMainRouter,result.data.user?.email.toString()))
+               is Result.ApiSuccess -> {
+                   _signInResultEvent.send(SignInResultEvent.Success(signInMainRouter,result.data.user?.email.toString()))
+               }
                is Result.ApiError -> _signInResultEvent.send(SignInResultEvent.Error(result.message.toString()))
-               is Result.ApiException -> d("error",result.e.message.toString())
+               is Result.ApiException -> d(resourceManager.provide(R.string.error),result.e.message.toString())
            }
             _isLoading.value = false
         }

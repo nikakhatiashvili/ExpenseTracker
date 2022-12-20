@@ -11,7 +11,7 @@ interface SignInResultEvent {
     class Success(private val signInMainRouter: SignInMainRouter, private val name: String) :
         SignInResultEvent {
         override fun apply(context: Context?) {
-            context?.showMessage(context.resources.getString(R.string.welcome, name))
+            context?.showMessage(context.resources.getString(R.string.sign_in_welcome, name))
             signInMainRouter.goToTabs()
         }
     }
