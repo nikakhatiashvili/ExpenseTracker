@@ -10,17 +10,28 @@
         android:id="@+id/btnCreateTribe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/spacing_2xl"
+        android:layout_marginBottom="@dimen/spacing_32dp"
         android:text="@string/create_tribe"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:id="@+id/btnJoinTribe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/join_tribe"
+        android:layout_marginBottom="@dimen/spacing_32dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnCreateTribe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <Button
         android:id="@+id/btnManageTribe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_2xl"
+        android:layout_margin="@dimen/spacing_32dp"
         android:text="@string/manage_tribe"
         app:layout_constraintBottom_toTopOf="@+id/btnLogOut"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,10 +41,10 @@
         android:id="@+id/btnLogOut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_32dp"
         android:text="@string/log_out"
-        android:layout_marginBottom="@dimen/spacing_2xl"
-        app:layout_constraintBottom_toTopOf="@+id/btnCreateTribe"
-        app:layout_constraintEnd_toEndOf="@+id/btnCreateTribe"
-        app:layout_constraintStart_toStartOf="@+id/btnCreateTribe" />
+        app:layout_constraintBottom_toTopOf="@+id/btnJoinTribe"
+        app:layout_constraintEnd_toEndOf="@+id/btnJoinTribe"
+        app:layout_constraintStart_toStartOf="@+id/btnJoinTribe" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

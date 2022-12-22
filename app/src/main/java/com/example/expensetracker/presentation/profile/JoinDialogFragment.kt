@@ -4,18 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
-import com.example.expensetracker.R
 import com.example.expensetracker.databinding.FragmentTribeDialogBinding
+import com.example.expensetracker.databinding.JoinTribeBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DialogFragment : DialogFragment() {
+class JoinDialogFragment : DialogFragment() {
 
-    private var _binding: FragmentTribeDialogBinding? = null
+    private var _binding: JoinTribeBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: ProfileViewModel by viewModels()
@@ -26,16 +24,17 @@ class DialogFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentTribeDialogBinding.inflate(inflater, container, false)
+        _binding = JoinTribeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         setupClicks()
         return root
     }
 
     private fun setupClicks() {
-        binding.create.setOnClickListener {
-            viewModel.createTribe(binding.etEmail.editText?.text.toString())
+        binding.btnJoin.setOnClickListener {
+            viewModel.joinTribe(binding.inviteUrl.editText?.text.toString())
             dismiss()
         }
     }
 }
+

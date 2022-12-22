@@ -18,7 +18,6 @@ class AuthRepositoryImpl @Inject constructor(
     private val firebaseDatabase: FirebaseDatabase,
     private val resourceManager: ResourceManager,
     private val authDataStore: AuthDataStore,
-    private val tribeIdRepository: TribeIdRepository,
 ) : AuthRepository {
 
     override suspend fun signUp(
@@ -48,13 +47,13 @@ class AuthRepositoryImpl @Inject constructor(
             Result.ApiError(null, e.message.toString())
         }
     }
-    private fun createUserInDatabase(){
+
+    private fun createUserInDatabase() {
         val ref = firebaseDatabase.getReference(resourceManager.provide(R.string.user))
         ref.child(firebaseAuth.uid.toString()).setValue(UserTribe(false))
     }
 
     private suspend fun saveUid(uid: String) {
         authDataStore.saveUid(uid)
-        tribeIdRepository.saveTribeId()
     }
 }

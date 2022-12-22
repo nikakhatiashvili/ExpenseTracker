@@ -36,7 +36,7 @@
     <style name="Widget.Staffing.ButtonFilled" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">?attr/colorPrimary</item>
         <item name="android:textColor">?attr/colorOnSecondary</item>
-        <item name="android:padding">@dimen/spacing_m</item>
+        <item name="android:padding">@dimen/spacing_12dp</item>
         <item name="cornerFamily">rounded</item>
         <item name="cornerRadius">100dp</item>
         <item name="android:insetTop">0dp</item>
@@ -47,8 +47,8 @@
 
     <style name="Widget.Staffing.ButtonSmallFilled" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">?attr/colorPrimary</item>
-        <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/spacing_m</item>
-        <item name="android:paddingVertical" tools:targetApi="o">@dimen/spacing_xs</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/spacing_12dp</item>
+        <item name="android:paddingVertical" tools:targetApi="o">@dimen/spacing_6dp</item>
         <item name="android:textColor">?attr/colorOnSecondary</item>
         <item name="shapeAppearance">@style/ShapeAppearance.ExpenseTracker.ButtonSmall</item>
         <item name="android:includeFontPadding">false</item>
@@ -60,8 +60,8 @@
     <style name="Widget.Staffing.ButtonSmallOutlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
         <item name="strokeColor">?attr/colorPrimary</item>
         <item name="strokeWidth">1dp</item>
-        <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/spacing_m</item>
-        <item name="android:paddingVertical" tools:targetApi="o">@dimen/spacing_xs</item>
+        <item name="android:paddingHorizontal" tools:targetApi="o">@dimen/spacing_12dp</item>
+        <item name="android:paddingVertical" tools:targetApi="o">@dimen/spacing_6dp</item>
         <item name="shapeAppearance">@style/ShapeAppearance.ExpenseTracker.ButtonSmall</item>
         <item name="android:includeFontPadding">false</item>
         <item name="android:insetTop">0dp</item>

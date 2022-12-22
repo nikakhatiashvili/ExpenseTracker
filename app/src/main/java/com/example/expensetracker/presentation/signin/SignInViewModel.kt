@@ -8,6 +8,9 @@ import com.example.expensetracker.common.Dispatchers
 import com.example.expensetracker.common.ResourceManager
 import com.example.expensetracker.common.Result
 import com.example.expensetracker.domain.auth.SignInUseCase
+import com.example.expensetracker.domain.manage_tribe.TribeDataStore
+import com.example.expensetracker.domain.manage_tribe.TribeIdRepository
+import com.example.expensetracker.presentation.common.collect
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
@@ -21,7 +24,8 @@ class SignInViewModel @Inject constructor(
     private val signInMainRouter: SignInMainRouter,
     private val dispatchers: Dispatchers,
     private val signInUseCase: SignInUseCase,
-    private val resourceManager: ResourceManager
+    private val resourceManager: ResourceManager,
+    private val tribeIdRepository: TribeIdRepository
 ) : ViewModel() {
 
     private val _signInResultEvent = Channel<SignInResultEvent>()
@@ -39,12 +43,21 @@ class SignInViewModel @Inject constructor(
             _isLoading.value = true
            when(val result =  signInUseCase.invoke(email, password)){
                is Result.ApiSuccess -> {
-                   _signInResultEvent.send(SignInResultEvent.Success(signInMainRouter,result.data.user?.email.toString()))
+                   saveTribeId()
                }
                is Result.ApiError -> _signInResultEvent.send(SignInResultEvent.Error(result.message.toString()))
                is Result.ApiException -> d(resourceManager.provide(R.string.error),result.e.message.toString())
            }
             _isLoading.value = false
+        }
+    }
+    private suspend fun saveTribeId(){
+        collect(tribeIdRepository.saveTribeId()){
+            when(it) {
+                is Result.ApiSuccess -> {
+                    _signInResultEvent.send(SignInResultEvent.Success(signInMainRouter))
+                }
+            }
         }
     }
 }

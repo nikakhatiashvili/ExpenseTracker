@@ -31,10 +31,6 @@ class TribeFragment : Fragment(R.layout.fragment_tribe) {
         create.setOnClickListener {
             val dialog = TribeDialogFragment()
             dialog.show(parentFragmentManager, requireContext().getString(R.string.dialog))
-            setFragmentResultListener(requireContext().getString(R.string.Key1)) { requestKey, bundle ->
-                val name = bundle.getParcelable<Task>(requireContext().getString(R.string.key2))
-                viewModel.addTask(name!!)
-            }
         }
     }
 }

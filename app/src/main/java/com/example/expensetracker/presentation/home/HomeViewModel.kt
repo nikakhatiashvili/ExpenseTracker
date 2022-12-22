@@ -20,6 +20,9 @@ class HomeViewModel @Inject constructor(
     private val _taskResultEvent = MutableStateFlow<List<Task>>(emptyList())
     val taskResultEvent : StateFlow<List<Task>> = _taskResultEvent.asStateFlow()
 
+    init {
+        getTasks()
+    }
     fun getTasks() {
         viewModelScope.launch {
            collect(tasksRepository.getTasks()){

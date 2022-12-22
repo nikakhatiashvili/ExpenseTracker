@@ -24,6 +24,9 @@ class ProfileViewModel @Inject constructor(
     private val _createTribe = MutableSharedFlow<Boolean>()
     val createTribe: MutableSharedFlow<Boolean> get() = _createTribe
 
+    private val _joinTribe = MutableSharedFlow<Boolean>()
+    val joinTribe: MutableSharedFlow<Boolean> get() = _joinTribe
+
     fun createTribe(name: String) {
         viewModelScope.launch(Dispatchers.IO) {
             tribeRepository.createTribe(name)
@@ -32,14 +35,27 @@ class ProfileViewModel @Inject constructor(
 
     fun goToManageTribe() {
         viewModelScope.launch(Dispatchers.IO) {
-            _isInTribe.emit(tribeDataStore.hasTribeId())
+            _isInTribe.emit(hasTribeId())
+        }
+    }
+    fun joinTribe(inviteId:String){
+        viewModelScope.launch(Dispatchers.IO) {
+            tribeRepository.joinTribe(inviteId)
+        }
+    }
+    fun goToJoinTribe(){
+        viewModelScope.launch(Dispatchers.IO) {
+            _joinTribe.emit(hasTribeId())
         }
     }
 
-    fun createTribe() {
+    fun checkTribeId() {
         viewModelScope.launch(Dispatchers.IO) {
-            _createTribe.emit(tribeDataStore.hasTribeId())
+            _createTribe.emit(hasTribeId())
         }
+    }
+    private suspend fun hasTribeId(): Boolean {
+        return tribeDataStore.hasTribeId()
     }
 
     fun logOut() {

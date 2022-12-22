@@ -26,13 +26,16 @@
     <string name="sell">sell</string>
     <string name="price">%s₾</string>
     <string name="name">tribe name</string>
+    <string name="invite">invite link</string>
     <string name="description">description</string>
     <string name="profile">profile</string>
     <string name="create">Create</string>
     <string name="log_out">log out</string>
     <string name="manage_tribe">Manage Tribe</string>
     <string name="create_tribe">Create Tribe</string>
+    <string name="join_tribe">join Tribe</string>
     <string name="cant_create">you need to leave tribe to create new one</string>
+    <string name="already_in_tribe">you are already in the tribe</string>
     <string name="completed">Completed ?</string>
 
     <string name="dialog">TribeDialog</string>

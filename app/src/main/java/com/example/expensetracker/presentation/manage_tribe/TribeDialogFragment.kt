@@ -40,15 +40,7 @@ class TribeDialogFragment : DialogFragment() {
             if (desc.isNullOrEmpty() || name.isNullOrEmpty()) {
                 requireContext().toast(requireContext().getString(R.string.All_fields_must_me_full))
             } else {
-                setFragmentResult(
-                    requireContext().getString(R.string.Key1),
-                    bundleOf(
-                        requireContext().getString(R.string.key2) to Task(
-                            name = name.toString(),
-                            description = desc.toString()
-                        )
-                    )
-                )
+                viewModel.addTask(Task(name = name.toString(), description = desc.toString()))
                 dismiss()
             }
 

@@ -3,7 +3,6 @@ package com.example.expensetracker.presentation.profile
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -37,27 +36,36 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             if (!it) {
                 val dialog = DialogFragment()
                 dialog.show(parentFragmentManager, requireContext().getString(R.string.dialog))
-                setFragmentResultListener(requireContext().getString(R.string.key3)) { requestKey, bundle ->
-                    val name = bundle.getString(requireContext().getString(R.string.key4))
-                    viewModel.createTribe(name!!)
-                }
+
             }else{
                 requireContext().toast(requireContext().getString(R.string.cant_create))
             }
         }
+        collectFlow(viewModel.joinTribe){
+            if (!it){
+                val dialog = JoinDialogFragment()
+                dialog.show(parentFragmentManager, requireContext().getString(R.string.dialog))
+            }else{
+                requireContext().toast(requireContext().getString(R.string.already_in_tribe))
+            }
+        }
+
     }
 
     private fun setupClickListeners() = with(binding) {
-        binding.btnCreateTribe.setOnClickListener {
-            viewModel.createTribe()
+        btnJoinTribe.setOnClickListener {
+            viewModel.goToJoinTribe()
         }
-        binding.btnLogOut.setOnClickListener {
+        btnCreateTribe.setOnClickListener {
+            viewModel.checkTribeId()
+        }
+        btnLogOut.setOnClickListener {
             viewModel.logOut()
             val navHostFragment = parentFragment as NavHostFragment?
             val d = navHostFragment!!.requireParentFragment() as TabsFragment
             d.logOut()
         }
-        binding.btnManageTribe.setOnClickListener {
+        btnManageTribe.setOnClickListener {
             viewModel.goToManageTribe()
         }
     }

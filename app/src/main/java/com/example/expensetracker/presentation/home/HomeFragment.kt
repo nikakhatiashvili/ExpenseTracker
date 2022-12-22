@@ -25,6 +25,7 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         setupCollects()
     }
     private fun setupCollects(){
+        viewModel.getTasks()
         adapter = TasksAdapter()
         binding.tasksRecyclerview.adapter = adapter
         binding.tasksRecyclerview.layoutManager = LinearLayoutManager(requireContext())
@@ -33,6 +34,5 @@ class HomeFragment : Fragment(R.layout.fragment_home){
         }
     }
     private fun setupClickListeners() = with(binding) {
-        viewModel.getTasks()
     }
 }

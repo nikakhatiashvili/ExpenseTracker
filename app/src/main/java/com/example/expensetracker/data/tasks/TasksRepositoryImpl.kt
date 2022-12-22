@@ -20,6 +20,7 @@ class TasksRepositoryImpl @Inject constructor(
     private val resourceManager: ResourceManager
 ) : TasksRepository {
     override suspend fun getTasks(): Flow<MutableList<Task>> = callbackFlow {
+        println(tribeDataStore.getTribeId().plus("tribe id first time"))
         val ref = databaseReference.getReference(resourceManager.provide(R.string.tribes))
             .child(tribeDataStore.getTribeId()).child(resourceManager.provide(R.string.tasks))
         val queryList = mutableListOf<Task>()
@@ -31,6 +32,8 @@ class TasksRepositoryImpl @Inject constructor(
                         queryList.add(item!!)
                     }
                     trySend(queryList)
+                }else{
+                    println("entered else")
                 }
             }
 
